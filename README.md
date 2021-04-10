@@ -10,4 +10,4 @@
 * Mapa Manager
 * Player Controller
 * Photon (Multplayer)
-* Sistema de dia e noite
+* Day and night cycle
