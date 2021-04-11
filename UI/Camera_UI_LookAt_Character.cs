@@ -16,7 +16,7 @@ namespace Assets._Scripts.UI
         {
             GetTargetCam();
         }
-        private void FixedUpdate()
+        private void LateUpdate()
         {
             LookAtCam();
         }
