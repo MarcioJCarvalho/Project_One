@@ -7,24 +7,36 @@ namespace Assets._Scripts.UI
     {
         public GameObject bodyTypeA;
         public GameObject bodyTypeB;
-        public Transform instantTransform;
 
+        private Vector3 basePosition;
+     
         // Use this for initialization
         void Start()
         {
             // Default
             SelectBodyTypeA();
+            basePosition = Vector3.zero;
         }
 
         public void SelectBodyTypeA()
         {
-            Instantiate(bodyTypeA, instantTransform.position, instantTransform.rotation);
+            bodyTypeA.SetActive(true);
+            bodyTypeA.transform.position = basePosition;
+            if (bodyTypeA.activeInHierarchy)
+            {
+                bodyTypeB.SetActive(false);
+            }
             
         }
 
         public void SelectBodyTypeB()
         {
-            Instantiate(bodyTypeB, instantTransform.position, instantTransform.rotation);
+            bodyTypeB.SetActive(true);
+            bodyTypeB.transform.position = basePosition;
+            if (bodyTypeB.activeInHierarchy)
+            {
+                bodyTypeA.SetActive(false);
+            }
         }
     }
 }

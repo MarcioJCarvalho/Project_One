@@ -6,7 +6,6 @@ namespace Assets._Scripts.UI
 {
     public class UI : MonoBehaviour
     {
-        public Canvas canvas;
 
         // Use this for initialization
         void Start()
