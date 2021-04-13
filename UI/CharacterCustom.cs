@@ -13,29 +13,32 @@ namespace Assets._Scripts.UI
         // Use this for initialization
         void Start()
         {
-            // Default
-            SelectBodyTypeA();
             basePosition = Vector3.zero;
         }
 
         public void SelectBodyTypeA()
         {
             bodyTypeA.SetActive(true);
-            bodyTypeA.transform.position = basePosition;
             if (bodyTypeA.activeInHierarchy)
             {
                 bodyTypeB.SetActive(false);
+                bodyTypeB.transform.position = basePosition;
+                bodyTypeB.transform.rotation = Quaternion.Euler(0, 180, 0);
+                Camera_UI_LookAt_Character.instance.GetTargetCam();
             }
-            
+
         }
 
         public void SelectBodyTypeB()
         {
             bodyTypeB.SetActive(true);
-            bodyTypeB.transform.position = basePosition;
+            
             if (bodyTypeB.activeInHierarchy)
             {
                 bodyTypeA.SetActive(false);
+                bodyTypeA.transform.position = basePosition;
+                bodyTypeA.transform.rotation = Quaternion.Euler(0, 180, 0);
+                Camera_UI_LookAt_Character.instance.GetTargetCam();
             }
         }
     }

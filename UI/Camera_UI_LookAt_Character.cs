@@ -5,6 +5,8 @@ namespace Assets._Scripts.UI
 {
     public class Camera_UI_LookAt_Character : MonoBehaviour
     {
+        public static Camera_UI_LookAt_Character instance;
+
         [HideInInspector]
         public GameObject faceTarget;
         [HideInInspector]
@@ -14,6 +16,7 @@ namespace Assets._Scripts.UI
 
         private void Start()
         {
+            instance = this;
             GetTargetCam();
         }
         private void LateUpdate()
