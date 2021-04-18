@@ -1,0 +1,5 @@
+﻿Para fazer com que na hora da gameplay carregue o personagem desejado
+implementarei uma ação no botão pronto para setar o nome do meu personagem ativo
+irei usar o gameObject.name que retorna o nome do gameObject(personagem)
+salvo em forma de string no playerPrefs e depois resgato antes 
+de usar o Instantiate do Photon no hora da gameplay.
