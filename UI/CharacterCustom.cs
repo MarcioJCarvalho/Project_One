@@ -11,7 +11,11 @@ namespace Assets._Scripts.UI
         public GameObject bodyTypeA;
         public GameObject bodyTypeB;
 
+        public SkinnedMeshRenderer skinnedMeshRenderer;
+
         public Material skinMaterial;
+
+        private GameObject skinnedMR;
 
         private void Awake()
         {
@@ -21,9 +25,14 @@ namespace Assets._Scripts.UI
 
         public void GetSkinMetrial()
         {
-            GameObject skin = GameObject.Find("body");
-            Material skinMat = skin.GetComponentInChildren<SkinnedMeshRenderer>().material;
-            skinMaterial = skinMat;
+            skinnedMR = GameObject.Find("body");
+            Material skin = skinnedMR.GetComponentInChildren<SkinnedMeshRenderer>().material;
+            skinMaterial = skin;
+        }
+
+        public void GetSkinnedMeshRenderer()
+        {
+            skinnedMeshRenderer = skinnedMR.GetComponentInChildren<SkinnedMeshRenderer>();
         }
     }
 }

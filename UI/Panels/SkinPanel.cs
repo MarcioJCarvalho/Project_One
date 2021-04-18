@@ -33,12 +33,7 @@ namespace Assets._Scripts.UI.Panels
 
         public void SetSkinColor()
         {
-            /*
-             if (skinColor[] != null)
-            {
-                
-            }
-             */
+            CharacterCustom.instance.skinMaterial.SetTexture("_BaseColorMap", skinColor[15]);
         }
     }
 }
