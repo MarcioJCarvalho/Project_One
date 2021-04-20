@@ -14,6 +14,7 @@ namespace Assets._Scripts.UI
         public float speedMove = 2;
 
         public int indexPositions = 0;
+        public int lastIndexPositions = 0;
 
         private Camera camera;
 
@@ -36,19 +37,25 @@ namespace Assets._Scripts.UI
 
         public void ChangePositionCam(int camPosition)
         {
-            if (camPosition == 0)
+            if (camPosition == 0 && lastIndexPositions == indexPositions)
             {
                 indexPositions = 0;
+                lastIndexPositions = indexPositions;
             }
-            else if (camPosition == 1)
+            else if (camPosition == 1 && lastIndexPositions == indexPositions)
             {
                 indexPositions = 1;
+                lastIndexPositions = indexPositions;
+            }
+            else if (camPosition == 2 && lastIndexPositions == indexPositions)
+            {
+                indexPositions = 2;
+                lastIndexPositions = indexPositions;
             }
             else
             {
-                indexPositions = 2;
+                indexPositions = 0;
             }
-
         }
     }
 }

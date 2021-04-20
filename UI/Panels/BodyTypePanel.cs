@@ -27,6 +27,7 @@ namespace Assets._Scripts.UI.Panels
                 CharacterCustom.instance.bodyTypeB.transform.position = Vector3.zero;
                 CharacterCustom.instance.bodyTypeB.transform.rotation = Quaternion.Euler(0, 180, 0);
                 CharacterCustom.instance.GetSkinMetrial();
+                CharacterCustom.instance.GetSkinnedMeshRenderer();
                 Camera_UI_LookAt_Character.instance.GetTargetCam();
             }
         }
@@ -40,6 +41,7 @@ namespace Assets._Scripts.UI.Panels
                 CharacterCustom.instance.bodyTypeA.transform.position = Vector3.zero;
                 CharacterCustom.instance.bodyTypeA.transform.rotation = Quaternion.Euler(0, 180, 0);
                 CharacterCustom.instance.GetSkinMetrial();
+                CharacterCustom.instance.GetSkinnedMeshRenderer();
                 Camera_UI_LookAt_Character.instance.GetTargetCam();
             }
         }

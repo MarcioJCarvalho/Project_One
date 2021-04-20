@@ -6,6 +6,8 @@ namespace Assets._Scripts.UI
 {
     public class UI_AppearencePanel : MonoBehaviour
     {
+        public static UI_AppearencePanel instance;
+
         [Header("Panels")]
         public GameObject namePanel;
         public GameObject bodyPanel;
@@ -19,41 +21,19 @@ namespace Assets._Scripts.UI
         public GameObject earsPanel;
         public GameObject hairPanel;
 
-        [Header("Audio Source")]
-        [Tooltip("Audio de cancelamento ou voltar do menu.")]
-        public AudioSource backOrCancelSoundEFX;
-
         [Header("Panels List")]
         [Tooltip("Colocar todos os painéis a serem descarregados")]
         public GameObject[] panels;
 
-        // Use this for initialization
-        private void Start()
+        private void Awake()
         {
-            UnloadAllPanels();
-        }
-
-        /// <summary>
-        /// Para comandos de interção usamos a update, caso contrario uso de fixedUpdate
-        /// </summary>
-        private void Update()
-        {
-            if (Input.GetButton("B") || Input.GetKey(KeyCode.Escape))
-            {
-                UnloadAllPanels();
-                CamCharacterCustom.instance.ChangePositionCam(0);
-            }
-
-            if (Input.GetButtonUp("B") || Input.GetKeyUp(KeyCode.Escape))
-            {
-                CancelSoundEffect();
-            }
+            instance = this;
         }
 
         /// <summary>
         /// Desativa todos os paines em cena(precaução para que não apareca painel desnecessário)
         /// </summary>
-        private void UnloadAllPanels()
+        public void UnloadAllPanels()
         {
             for (int i = 0; i < panels.Length; i++)
             {
@@ -62,14 +42,6 @@ namespace Assets._Scripts.UI
                     panels[i].gameObject.SetActive(false);
                 }
             }
-        }
-
-        /// <summary>
-        /// Som do botão ao cancelar
-        /// </summary>
-        private void CancelSoundEffect()
-        {
-            backOrCancelSoundEFX.Play();
         }
 
         /// <summary>
