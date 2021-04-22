@@ -10,24 +10,34 @@ namespace Assets._Scripts.UI
 
         public GameObject bodyTypeA;
         public GameObject bodyTypeB;
+
         [Space]
         [Header("Audio Source")]
         [Tooltip("Audio de cancelamento ou voltar do menu.")]
         public AudioSource backOrCancelSoundEFX;
 
-        public SkinnedMeshRenderer skinnedMeshRenderer;
+        [HideInInspector] public Material skinMaterial;
+        [HideInInspector] public Material eyeMaterial;
+        [HideInInspector] public Material scleraMaterial;
+        [HideInInspector] public Material irisMaterial;
 
-        public Material skinMaterial;
+        [HideInInspector] public SkinnedMeshRenderer skinnedMeshRenderer;
+
+        
 
         //public int lastIndexPosition = 0;
 
         private GameObject skinnedMR;
+        private GameObject eye;
+        private GameObject sclera;
+        private GameObject iris;
 
         private void Awake()
         {
             instance = this;
             GetSkinMetrial();
             GetSkinnedMeshRenderer();
+            GetEyes();
         }
 
         private void Update()
@@ -58,6 +68,24 @@ namespace Assets._Scripts.UI
             return skinnedMR;
         }
 
+        public GameObject GetEye()
+        {
+            eye = GameObject.Find("eye");
+            return eye;
+        }
+
+        public GameObject GetSclera()
+        {
+            sclera = GameObject.Find("sclera");
+            return sclera;
+        }
+
+        public GameObject GetIris()
+        {
+            iris = GameObject.Find("iris");
+            return iris;
+        }
+
         public void GetSkinMetrial()
         {
             GetBody();
@@ -70,6 +98,20 @@ namespace Assets._Scripts.UI
             GetBody();
             SkinnedMeshRenderer skmr = skinnedMR.GetComponentInChildren<SkinnedMeshRenderer>();
             skinnedMeshRenderer = skmr;
+        }
+
+        public void GetEyes()
+        {
+            GetEye();
+            GetSclera();
+            GetIris();
+            Material eyeMat = eye.GetComponentInChildren<SkinnedMeshRenderer>().material;
+            Material scleraMat = sclera.GetComponentInChildren<SkinnedMeshRenderer>().material;
+            Material irisMat = iris.GetComponentInChildren<SkinnedMeshRenderer>().material;
+            
+            eyeMaterial = eyeMat;
+            scleraMaterial = scleraMat;
+            irisMaterial = irisMat;
         }
 
         private void CancelSoundEffect()
