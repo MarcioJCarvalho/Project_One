@@ -14,6 +14,8 @@ namespace Assets._Scripts.UI
         [HideInInspector]
         public GameObject midBodyTarget;
 
+        public float yOffset;
+
         private void Start()
         {
             instance = this;
@@ -42,9 +44,9 @@ namespace Assets._Scripts.UI
 
         public void GetTargetCam()
         {
-            faceTarget = GameObject.Find("mixamorig:Head");
-            bodyTarget = GameObject.Find("mixamorig:Spine");
-            midBodyTarget = GameObject.Find("mixamorig:Spine2");
+            faceTarget = GameObject.Find("target03");
+            bodyTarget = GameObject.Find("target01");
+            midBodyTarget = GameObject.Find("target02");
         }
     }
 }

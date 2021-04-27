@@ -70,7 +70,7 @@ namespace Assets._Scripts.UI
 
         public GameObject GetEye()
         {
-            eye = GameObject.Find("eye");
+            eye = GameObject.Find("eyes");
             return eye;
         }
 
